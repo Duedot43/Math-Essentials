@@ -22,3 +22,18 @@ def triForC3D(l,w,h):
         return False
     output = sqrt((sqrt((l**2)+(w**2))**2)+(h**2))
     return output
+def vertOfPorab(a, b, c):
+    if (isInt(a) != True and isInt(b) != True and isInt(c) != True):
+        return False
+    xVrt = (-(b))/(2*(a))
+    yVrt = (a*(xVrt)**2)+(b*(xVrt))+(c)
+    return [xVrt, yVrt]
+def pointOnPorab(x, a, b, c):
+    if (isInt(a) != True and isInt(b) != True and isInt(c) != True and isInt(x) != True):
+        return False
+    c = c-x
+    topPlus = -(b)+sqrt(b**2 - (4*(a)*(c)))
+    botPlus = (2*(a))
+    topMins = -(b)-sqrt(b**2 - 4*(a)*(c))
+    botMins = (2*(a))
+    return [[(topPlus/botPlus), x], [(topMins/botMins), -x]]
